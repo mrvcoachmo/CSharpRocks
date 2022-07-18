@@ -1,6 +1,12 @@
+using CSharpRocks.Repositories;
+using CSharpRocks.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddTransient<iWordPredictService, WordPredictServiceImpl>();
+builder.Services.AddTransient<iWordPredictRepository, WordPredictRepositoryImpl>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
